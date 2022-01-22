@@ -1,0 +1,69 @@
+<html>
+
+<head>
+    <title>My first App</title>
+</head>
+
+<body>
+    <h1 align="center">Welcome to my webpage</h1>
+    <form action="{{ url_for('predict')}}" method="post">
+        <label><b>Select Year</b></label>
+        <select id="year" name="year" required="1">
+            <option selected>--Select Year--</option>
+            {% for year in year %}
+            <option value="{{ year }}">{{ year }}</option>
+            {% endfor %}
+        </select>
+        <br>
+        <br>
+        <label><b>Enter Present Price(in Lacs)</b></label>
+        <input type="text" id="pre_price" name="pre_price">
+        <br>
+        <br>
+        <label><b>Enter Kilometers Driven</b></label>
+        <input type="text" id="km_driven" name="km_driven">
+        <br>
+        <br>
+        <label><b>Select Fuel</b></label>
+        <select id="fuel_type" name="fuel_type" required="1">
+            <option selected>--Select Fuel--</option>
+            {% for fuel_type in fuel_type %}
+            <option value="{{ fuel_type }}">{{ fuel_type }}</option>
+            {% endfor %}
+        </select>
+        <br>
+        <br>
+        <label><b>Select Seller</b></label>
+        <select id="seller_type" name="seller_type" required="1">
+            <option selected>--Select Seller--</option>
+            {% for seller_type in seller_type %}
+            <option value="{{ seller_type }}">{{ seller_type }}</option>
+            {% endfor %}
+        </select>
+        <br>
+        <br>
+        <label><b>Select Transmission</b></label>
+        <select id="transmission_type" name="transmission_type" required="1">
+            <option selected>--Select Trannsmission--</option>
+            {% for transmission_type in transmission_type %}
+            <option value="{{ transmission_type }}">{{ transmission_type }}</option>
+            {% endfor %}
+        </select>
+        <br>
+        <br>
+        <label><b>Select Number of Previous owners</b></label>
+        <select id="owner_type" name="owner_type" required="1">
+            <option selected>--Select owners--</option>
+            {% for owner_type in owner_type %}
+            <option value="{{ owner_type }}">{{ owner_type }}</option>
+            {% endfor %}
+        </select>
+        <br>
+        <br>
+        <button type="submit">Predict</button>
+    </form>
+    <br>
+    {{ prediction_text }}
+</body>
+
+</html>
